@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <property name="connection.url">jdbc:mysql://121.41.64.139:3306/crawler_test_user</property>
+        <!--<property name="connection.url">jdbc:mysql://127.0.0.1:3306/crawler_test_user</property>-->
+        <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+        <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="connection.username">root</property>
+        <property name="connection.password">5523288q</property>
+        <property name="show_sql">true</property><!-- 显示SQL语句 -->
+        <property name="hbm2ddl.auto">update</property>
+        <mapping class="com.bk.crawler.entity.Category" />
+        <mapping class="com.bk.crawler.entity.News" />
+        <mapping class="com.bk.crawler.entity.NewsBrief" />
+        <mapping class="com.bk.crawler.entity.Users"/>
+        <mapping class="com.bk.crawler.entity.Collection"/>
+        <mapping class="com.bk.crawler.entity.Comment"/>
+        <mapping class="com.bk.crawler.entity.NameModel"/>
+        <!-- DB schema will be updated if needed -->
+    </session-factory>
+</hibernate-configuration>

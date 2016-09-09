@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+    <constant name="struts.action.extension" value="do,action,in" />
+    <package name="requireLogin" extends="struts-default,json-default" >
+        <!--<global-results>-->
+            <!--<result name="error">/Error.jsp</result>-->
+        <!--</global-results>-->
+        <interceptors>
+            <interceptor name="loginInteceptor" class="com.bk.crawler.toolkit.LoginInterceptor" />
+            <interceptor-stack name="loginStack">
+                <interceptor-ref name="loginInteceptor">
+                    <param name="excludeMethods">userLogin,userRegister</param>
+                </interceptor-ref>
+                <interceptor-ref name="defaultStack"></interceptor-ref>
+            </interceptor-stack>
+        </interceptors>
+        <default-interceptor-ref name="loginStack" />
+
+        <action name="userLogout" class="com.bk.crawler.action.UserAction" method="logout">
+            <result type="json" >
+                <param name="root">jsonResult</param>
+            </result>
+        </action>
+
+        <action name="collectionList" class="com.bk.crawler.action.CollectionAction" method="userCollection">
+            <result type="json" >
+                <param name="root">jsonResult</param>
+            </result>
+        </action>
+
+        <action name="collectionDel" class="com.bk.crawler.action.CollectionAction" method="deleteUserCollection">
+            <result type="json" >
+                <param name="root">jsonResult</param>
+            </result>
+        </action>
+
+        <action name="collectionAdd" class="com.bk.crawler.action.CollectionAction" method="addCollection">
+            <result type="json" >
+                <param name="root">jsonResult</param>
+            </result>
+        </action>
+    </package>
+
+    <package name="normal" extends="struts-default,json-default" >
+        <action name="news" class="com.bk.crawler.action.NewsAction" method="index">
+            <result type="json" >
+                <param name="root">jsonResult</param>
+            </result>
+        </action>
+        <action name="newsDetail" class="com.bk.crawler.action.NewsAction" method="newsDetail">
+            <result type="json" >
+                <param name="root">jsonResult</param>
+            </result>
+        </action>
+
+        <action name="userLogin" class="com.bk.crawler.action.UserAction" method="login">
+            <result type="json" >
+                <param name="excludeProperties">.*collections,.*comment_list</param>
+                <param name="root">jsonResult</param>
+            </result>
+        </action>
+
+        <action name="namePlug" class="com.bk.crawler.action.UserAction" method="plug">
+            <result type="json" >
+                <param name="root">jsonResult</param>
+            </result>
+        </action>
+
+        <action name="userRegister" class="com.bk.crawler.action.UserAction" method="register">
+            <result type="json" >
+                <param name="root">jsonResult</param>
+            </result>
+        </action>
+    </package>
+</struts>
+
+<!-- @see http://www.jb51.net/tools/zhengze.html 正则 -->
