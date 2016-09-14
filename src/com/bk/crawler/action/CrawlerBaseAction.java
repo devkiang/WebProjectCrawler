@@ -3,12 +3,14 @@ package com.bk.crawler.action;
 import com.bk.crawler.service.EncryptionService;
 import com.bk.crawler.service.EncryptionServiceImpl;
 import com.bk.crawler.service.IOSEncryptionServiceImpl;
+import com.bk.crawler.toolkit.Toolkit;
 import com.bk.crawler.toolkit.XLog;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import org.apache.struts2.ServletActionContext;
 
 import javax.servlet.http.HttpServletRequest;
+import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;

@@ -11,8 +11,17 @@ import java.util.List;
  */
 public class UserDAOImpl extends HibernateTemplate implements  UserDAO {
     @Override
-    public Users getUserByUid(String uid) {
-        return null;
+    public Users getUserByUid(Long uid) {
+        Users result=null;
+        Session s=getSession();
+        try {
+            result= (Users) s.get(Users.class,uid);
+        } catch (HibernateException e) {
+            e.printStackTrace();
+        } finally {
+            s.close();
+        }
+        return result;
     }
 
     @Override
@@ -82,13 +91,30 @@ public class UserDAOImpl extends HibernateTemplate implements  UserDAO {
     public String getRandomName() {
         Session s=getSession();
         Transaction t=s.beginTransaction();
-        SQLQuery q=s.createSQLQuery("select * from users order by rand() LIMIT 1");
+//        Query q=s.createQuery("from NameModel order by rand() LIMIT 1");
+        SQLQuery q=s.createSQLQuery("select * from NameModel order by rand() LIMIT 1").addEntity(NameModel.class);
         List<NameModel> result=q.list();
         if(result.size()<1){
             return null;
         }
         NameModel nameModel=result.get(0);
         return nameModel.getName_value();
+    }
+
+    @Override
+    public Users update(Users user) {
+        Session s= getSession();
+        Transaction t=s.beginTransaction();
+        try {
+            s.update(user);
+            t.commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+            t.rollback();
+        } finally {
+            s.close();
+        }
+        return user;
     }
 
 }

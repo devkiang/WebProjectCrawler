@@ -157,9 +157,11 @@ public class AES {
 
     public static void main(String[] args) {
         AES a=new AES("ceb89727213a4573b0ffab5c61a9727e");
-        String str="rLXBZuZUoeKemcBTsecp/w==";
-        str=a.decrypt(str);
-        System.out.println(str);
+//        String xx="ZfT35lamlQiNj4EGSMzIrw==";
+//        String str=a.encrypt(xx.getBytes());
+//        System.out.println(str);
+        String str=a.decrypt("Pv3CCZmpD5hdKNcLNa+HTw==");
+        System.out.println("pwd:"+str);
     }
 
 }

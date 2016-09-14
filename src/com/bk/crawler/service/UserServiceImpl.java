@@ -144,7 +144,7 @@ public class UserServiceImpl implements  UserService{
         return responseModel;
     }
 
-    private ResponseModel randomName(){
+    public ResponseModel randomName(){
         ResponseModel responseModel=new ResponseModel();
         String name=userDAO.getRandomName();
         if(name==null){
@@ -155,11 +155,40 @@ public class UserServiceImpl implements  UserService{
         return responseModel;
     }
 
+    @Override
+    public ResponseModel getUser(Long uid, String token) {
+        ResponseModel responseModel=new ResponseModel();
+        ResponseModel validateLoginResponseModel=this.validateLogin(uid+"",token);
+        if(validateLoginResponseModel.getCode()==200){
+           Users user=userDAO.getUserByUid(uid);
+            if(user!=null){
+                responseModel.setSuccess(user);
+            }else{
+                responseModel.setFail("没有找到该用户");
+            }
+        }else{
+            responseModel.setFail("非法操作,用户没有登录!");
+        }
+        return responseModel;
+    }
+
+    @Override
+    public ResponseModel updateUser(Users user) {
+        ResponseModel responseModel=new ResponseModel();
+        user=userDAO.update(user);
+        if(user!=null){
+            responseModel.setSuccess(user);
+        }else{
+            responseModel.setFail("修改失败");
+        }
+        return responseModel;
+    }
+
     private String validateRequest(String actionUrl,String uid,String sign)
     {
         String result=null;
         Object o_token=MemCachedManager.mcc.get(uid);
-        if(o_token==null){
+            if(o_token==null){
             return  result;
         }
         String token=o_token.toString();

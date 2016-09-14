@@ -9,6 +9,7 @@ import java.io.UnsupportedEncodingException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
+import java.util.Map;
 
 /**
  * Created by shikee_app03 on 16/9/5.
@@ -86,6 +87,11 @@ public class EncryptionServiceImpl implements EncryptionService{
         } catch (Exception e){
             e.printStackTrace();
         }
+        return null;
+    }
+
+    @Override
+    public Map<String, Object> decrypt(Map<String, Object> parameters) {
         return null;
     }
 

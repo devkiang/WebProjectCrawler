@@ -13,4 +13,7 @@ public interface UserService {
     public ResponseModel validateAccount(String account);
     public ResponseModel register(Users user);
     public ResponseModel getToken(String actionUrl, String uid,String sign);
+    public ResponseModel randomName();
+    public ResponseModel getUser(Long uid,String token);
+    public ResponseModel updateUser(Users user);
 }

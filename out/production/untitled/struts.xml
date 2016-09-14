@@ -27,6 +27,26 @@
             </result>
         </action>
 
+        <action name="userUpdate" class="com.bk.crawler.action.UserAction" method="userUpdate">
+            <result type="json" >
+                <param name="excludeProperties">.*collections,.*comment_list</param>
+                <param name="root">jsonResult</param>
+            </result>
+        </action>
+
+        <action name="uploadAvatar" class="com.bk.crawler.action.UserAction" method="uploadAvatar">
+            <result type="json" >
+                <param name="root">jsonResult</param>
+            </result>
+        </action>
+
+        <action name="getUserInfo" class="com.bk.crawler.action.UserAction" method="getUserInfo">
+            <result type="json" >
+                <param name="excludeProperties">.*collections,.*comment_list</param>
+                <param name="root">jsonResult</param>
+            </result>
+        </action>
+
         <action name="collectionList" class="com.bk.crawler.action.CollectionAction" method="userCollection">
             <result type="json" >
                 <param name="root">jsonResult</param>
@@ -65,13 +85,21 @@
             </result>
         </action>
 
-        <action name="namePlug" class="com.bk.crawler.action.UserAction" method="plug">
+        <action name="userRegister" class="com.bk.crawler.action.UserAction" method="register">
             <result type="json" >
                 <param name="root">jsonResult</param>
             </result>
         </action>
 
-        <action name="userRegister" class="com.bk.crawler.action.UserAction" method="register">
+        <action name="randomName" class="com.bk.crawler.action.UserAction" method="randomName">
+            <result type="json" >
+                <param name="root">jsonResult</param>
+            </result>
+        </action>
+
+
+        <!-- 插件 -->
+        <action name="namePlug" class="com.bk.crawler.action.UserAction" method="plug">
             <result type="json" >
                 <param name="root">jsonResult</param>
             </result>
