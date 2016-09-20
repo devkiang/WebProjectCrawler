@@ -33,7 +33,7 @@ public class Comment {
         this.parent_id = parent_id;
     }
 
-    @ManyToOne(fetch=FetchType.LAZY)
+    @ManyToOne(fetch=FetchType.EAGER)
     public Users getUser() {
         return user;
     }
@@ -42,8 +42,29 @@ public class Comment {
         this.user = user;
     }
 
+    public String getReport_time() {
+        return report_time;
+    }
+
+    public void setReport_time(String report_time) {
+        this.report_time = report_time;
+    }
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    public News getNews() {
+        return news;
+    }
+
+    public void setNews(News news) {
+        this.news = news;
+    }
+
     private Long comment_id;
     private String content;
     private Long parent_id;
     private Users user;
+    private String report_time;
+    private News news;
+
+
 }

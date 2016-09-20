@@ -42,6 +42,18 @@ public class Toolkit {
         }
     }
 
+    public String convert2String(Object obj){
+        if(obj==null){
+            return "";
+        }
+        String result="";
+        try {
+            result=obj.toString();
+        } catch (Exception e) {
+        }
+        return result;
+    }
+
     public Long convert2Long(Object obj)
     {
         if(obj==null){

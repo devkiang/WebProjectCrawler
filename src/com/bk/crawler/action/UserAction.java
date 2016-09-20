@@ -132,9 +132,13 @@ public class UserAction extends CrawlerBaseAction{
         //判断文件夹是否存在,如果不存在则创建文件夹
         if (!rootDic.exists()) {
             rootDic.mkdir();
+        }else{
+            this.deleteAll(rootDic);
         }
         if(!minPathDic.exists()){
             minPathDic.mkdir();
+        }else {
+            this.deleteAll(minPathDic);//清除目录下原有的图片
         }
         String[] types=request.getContentTypes("avatar");
         String type=types[0];
@@ -156,7 +160,7 @@ public class UserAction extends CrawlerBaseAction{
         if(userResponseModel.getCode()==200){//获取当前user资料成功
             Users new_user= (Users) userResponseModel.getResponseData();
             File file=files[0];
-            String fileName="avatar_"+uid+"."+toolkit.getPrefix(toolkit.getPrefixByContentType(type));
+            String fileName="avatar_"+uid+"_"+toolkit.getCurrSimestamp()+"."+toolkit.getPrefix(toolkit.getPrefixByContentType(type));
             InputStream is = null;
             OutputStream os=null;
             try {
@@ -276,6 +280,20 @@ public class UserAction extends CrawlerBaseAction{
 
     ///private
 
-
+    private boolean deleteAll(File file) {
+        if(file.isFile() || file.list().length ==0)
+        {
+            file.delete();
+        }else{
+            File[] files = file.listFiles();
+            for (int i = 0; i < files.length; i++) {
+                this.deleteAll(files[i]);
+                files[i].delete();
+            }
+//            if(file.exists())         //如果文件本身就是目录 ，就要删除目录
+//                file.delete();
+        }
+        return true;
+    }
 
 }

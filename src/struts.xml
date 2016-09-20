@@ -97,6 +97,27 @@
             </result>
         </action>
 
+        <!-- 评论 -->
+        <action name="reportComment" class="com.bk.crawler.action.CommentAction" method="reportComment">
+            <result type="json" >
+                <param name="root">jsonResult</param>
+            </result>
+        </action>
+
+        <action name="commentList" class="com.bk.crawler.action.CommentAction" method="commentList">
+            <result type="json" >
+                <param name="excludeProperties">.*collections,.*comment_list,.*password,.*token,.*account</param>
+                <param name="root">jsonResult</param>
+            </result>
+        </action>
+
+        <action name="subCommentList" class="com.bk.crawler.action.CommentAction" method="subCommentList">
+            <result type="json" >
+                <param name="excludeProperties">.*collections,.*comment_list,.*password,.*token,.*account</param>
+                <param name="root">jsonResult</param>
+            </result>
+        </action>
+
 
         <!-- 插件 -->
         <action name="namePlug" class="com.bk.crawler.action.UserAction" method="plug">
