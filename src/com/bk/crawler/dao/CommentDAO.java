@@ -16,4 +16,8 @@ public interface CommentDAO {
     * 如果传来的commentid下面还有子节点的话,子节点也会被一并删除
     * */
     public boolean deleteComment(Long commentid);
+
+    public List<Comment> getRootChildCommentListByRootId(Long root_parent_id,int size,int page);
+
+    public Long getCommentCount(Long news_id);
 }

@@ -1,5 +1,7 @@
 package com.bk.crawler.service;
 
+import com.bk.crawler.dao.CommentDAO;
+import com.bk.crawler.dao.CommentDAOImpl;
 import com.bk.crawler.dao.NewsDAO;
 import com.bk.crawler.dao.NewsDAOImpl;
 import com.bk.crawler.entity.News;
@@ -21,6 +23,7 @@ public class NewsServiceImpl implements NewsService {
 
     @Override
     public News findNewsByNid(long Nid) {
-        return newsDAO.findNewsByNid(Nid);
+        News news=newsDAO.findNewsByNid(Nid);
+        return news;
     }
 }

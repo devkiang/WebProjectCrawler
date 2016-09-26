@@ -72,7 +72,13 @@ public class NewsBrief {
         this.nId = nId;
     }
 
+    public Long getCommentCount() {
+        return commentCount;
+    }
 
+    public void setCommentCount(Long commentCount) {
+        this.commentCount = commentCount;
+    }
 
     private String brief;//新闻摘要
     private String imgUrl;//新闻出现的第一张图片URL
@@ -91,4 +97,5 @@ public class NewsBrief {
     }
 
     private Category category;
+    private Long commentCount;
 }

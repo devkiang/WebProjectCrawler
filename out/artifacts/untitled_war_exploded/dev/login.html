@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用户登录</title>
+</head>
+<body>
+<h2>/userLogin.do</h2>
+<h2>请求参数:</h2>
+<p>String account</p>
+<p>String auth</p>//authen="password=x&&time stamp=4445555566" (切记,必须对这个参数MD5,然后AES256加密)
+<h2>返回结果:</h2>
+<p>Long uid;//用户ID</p>
+<p>String name;//用户名</p>
+<p>String token;//token 签证</p>
+<p>String avatar;//头像</p>
+</body>
+</html>

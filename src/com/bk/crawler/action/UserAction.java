@@ -43,7 +43,7 @@ public class UserAction extends CrawlerBaseAction{
         long timestamp=Long.parseLong(tmp_stlit_timestamp);
         long curr_timestamp=(new Toolkit()).getCurrSimestamp();
         long result=curr_timestamp-timestamp;
-        if(result>5){
+        if(result>60){
             addError("非法请求!");
             return SUCCESS;
         }
@@ -121,31 +121,37 @@ public class UserAction extends CrawlerBaseAction{
     public String uploadAvatar(){
         Toolkit toolkit=new Toolkit();
         MultiPartRequestWrapper request= (MultiPartRequestWrapper) ServletActionContext.getRequest();
-
+        Map orgin_params=encryptionService.decrypt(request.getParameterMap());
+        Long uid = toolkit.convert2Long(orgin_params.get("uid"));
+        String sign=orgin_params.get("sign")==null?"":orgin_params.get("sign").toString();
+        String requestUrl = request.getRequestURL().toString();//url
         String uploadSavePath="/user_avatar";
         String uploadMinSavePath="/user_avatar_min";
-        Map orgin_params=encryptionService.decrypt(request.getParameterMap());
-        String root = ServletActionContext.getServletContext().getRealPath(uploadSavePath);
-        String minPath=ServletActionContext.getServletContext().getRealPath(uploadMinSavePath);
+
+        String root = ServletActionContext.getServletContext().getRealPath(uploadSavePath+"/"+uid);
+        String minPath=ServletActionContext.getServletContext().getRealPath(uploadMinSavePath+"/"+uid);
         File rootDic = new File(root);
+        rootDic.setReadable(true, false);
+        rootDic.setExecutable(true, false);
+        rootDic.setWritable(true, false);
         File minPathDic=new File(minPath);
+        minPathDic.setReadable(true, false);
+        minPathDic.setExecutable(true, false);
+        minPathDic.setWritable(true, false);
         //判断文件夹是否存在,如果不存在则创建文件夹
         if (!rootDic.exists()) {
-            rootDic.mkdir();
+            rootDic.mkdirs();
         }else{
             this.deleteAll(rootDic);
         }
         if(!minPathDic.exists()){
-            minPathDic.mkdir();
+            minPathDic.mkdirs();
         }else {
             this.deleteAll(minPathDic);//清除目录下原有的图片
         }
         String[] types=request.getContentTypes("avatar");
         String type=types[0];
         File[] files=request.getFiles("avatar");
-        Long uid = toolkit.convert2Long(orgin_params.get("uid"));
-        String sign=orgin_params.get("sign")==null?"":orgin_params.get("sign").toString();
-        String requestUrl = request.getRequestURL().toString();//url
         ResponseModel tokenResponseModel=userService.getToken(requestUrl,uid+"",sign);
         if(tokenResponseModel.getCode()!=200){
             addError("用户没有登录");
@@ -190,7 +196,7 @@ public class UserAction extends CrawlerBaseAction{
                 return SUCCESS;
             }
             toolkit.compressPic(root+"/"+fileName,minPath+"/"+fileName);
-            String avatar_url=request.getScheme()+"://"+ request.getServerName()+":"+request.getServerPort() +request.getContextPath()+uploadMinSavePath+"/"+fileName;
+            String avatar_url=request.getScheme()+"://"+ request.getServerName()+":"+request.getServerPort() +request.getContextPath()+uploadMinSavePath+"/"+uid+"/"+fileName;
             Map<String,Object> result=new HashMap<String, Object>();
             new_user.setAvatar(avatar_url);
             ResponseModel updateResponseModel=userService.updateUser(new_user);

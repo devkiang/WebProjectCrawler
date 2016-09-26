@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>设计图</title>
+</head>
+<body>
+<br>
+<h1>请求域名 www.bk886.com</h1>
+<h1>颜色代码</h1>
+<p>橘色(主色):F4A460</p>
+<p>暗黑颜色(一些列表的文字颜色):666666</p>
+<p>灰色颜色(细线的颜色):CCCCCC</p>
+<p>蓝色(一些链接文字颜色):007AFF</p>
+<p>文字灰色(一些小字的颜色):999999</p>
+<h1>加密解密说明</h1>
+<h2>普通请求加密</h2>
+<p>后端采用AES256位对称加密,使用AES/CBC/PKCS5Padding方式填充,密钥为"ceb89727213a4573b0ffab5c61a9727e"</p>
+<p>每一个请求(无论登录、需要登录、不需要登录的请求)都必须对请求参数进行一次AES加密请求</p>
+<h2>需要登录的请求加密</h2>
+<p>需要登录的请求,要额外传入一个特殊的sign参数,sign参数的生成,是"当前请求URL?uid=xxx&token=xxx"进行MD5制成的,制成MD5后还要再对该sign参数进行ASE256加密</p>
+<p>比如整一个请求为 http://www.bk886.com/news.do?type=4 , 那么sign参数应为sign=md5(http://www.bk886.com/news.do?uid=123&token=aassf)</p>
+<p>然后进行aes256加密:sign=aes(sign)</p>
+<h2>登录接口请求加密</h2>
+<p>登录是比较特殊的操作,所以,登录的接口设计得比较特殊</p>
+<p>登录需要传入account参数和auth参数</p>
+<p>auth参数的组合是:password=xxx&&time stamp=xxx,timestamp为当前系统的时间戳,后端解析后,会判断时间是否超时,如果超过3秒,则视为非法请求。组合完成后,进行AES256加密一次,再进行传输</p>
+<h1>返回参数说明</h1>
+<p>返回参数的结构,都为"data":xxx,"code":200,"msg":xxx</p>
+<p>data包含请求反馈的数据,code为请求状态码。200为正确请求,其他的状态码都为异常请求。msg是请求状态的描述</p>
+<h1>----------------------------</h1>
+<a href="logout.html">退出登录</a></br>
+<a href="userinfo.html">获取用户资料</a></br>
+<a href="updateUserInfo.html">用户资料更新</a></br>
+<a href="avatarUpload.html">用户头像上传</a></br>
+<a href="collection.html">用户收藏列表</a></br>
+<a href="addCollection.html">添加收藏</a></br>
+<a href="delCollection.html">取消收藏</a></br>
+<p>------ 下面是不需要登录的 -------</p>
+<a href="newindex.html">新闻首页</a></br>
+<a href="newsDetail.html">新闻详情</a></br>
+<a href="login.html">用户登录</a></br>
+<a href="register.html">用户注册</a></br>
+<a href="random.html">获取随机用户名</a></br>
+<p>- 评论 -</p>
+<a href="report.html">回复评论</a></br>
+<a href="1commetnlist.html">一级评论列表</a></br>
+<a href="2commentlist.html">二级+评论列表</a></br>
+</br></br></br></br></br></br></br></br>
+</body>
+<footer>Design by bigkiang 桂ICP备16006201号</footer>
+</html>

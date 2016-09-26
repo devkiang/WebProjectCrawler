@@ -21,6 +21,7 @@ public class CommentAction extends CrawlerBaseAction{
         String content=toolkit.convert2String(paramMap.get("content"));
         Long parent_id=toolkit.convert2Long(paramMap.get("parent_id"));
         Long news_id=toolkit.convert2Long(paramMap.get("nid"));
+        Long root_parent_id=toolkit.convert2Long(paramMap.get("root_parent_id"));
         Comment comment=new Comment();
         Users user=new Users();
         user.setUid(uid);
@@ -28,6 +29,7 @@ public class CommentAction extends CrawlerBaseAction{
         news.setId(news_id);
         comment.setContent(content);
         comment.setParent_id(parent_id);
+        comment.setRoot_parent_id(root_parent_id);
         comment.setUser(user);
         comment.setNews(news);
         ResponseModel responseModel=commentService.addComment(comment);
@@ -53,10 +55,10 @@ public class CommentAction extends CrawlerBaseAction{
     }
 
     public String subCommentList(){
-        Long parent_id=toolkit.convert2Long(paramMap.get("parent_id"));
         int size=toolkit.convert2Int(paramMap.get("size"));
         int page=toolkit.convert2Int(paramMap.get("page"));
-        ResponseModel responseModel=commentService.getSubCommentList(parent_id,size,page);
+        Long root_parent_id=toolkit.convert2Long(paramMap.get("root_parent_id"));
+        ResponseModel responseModel=commentService.getRootChildCommentList(root_parent_id,size,page);
         if(responseModel.getCode()==200){
             addSuccess(responseModel.getResponseData(),responseModel.getMsg());
         }else{

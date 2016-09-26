@@ -69,4 +69,22 @@ public class CommentServiceImpl implements CommentService{
         responseModel.setSuccess(result);
         return responseModel;
     }
+
+    @Override
+    public ResponseModel getRootChildCommentList(Long root_parent_id, int size, int page) {
+        ResponseModel responseModel=new ResponseModel();
+        if(root_parent_id==null||root_parent_id<1){
+            responseModel.setFail("非法请求");
+            return responseModel;
+        }
+        if(size<1){
+            size=20;
+        }
+        if(page<0){
+            page=0;
+        }
+        List<Comment> result=commentDAO.getRootChildCommentListByRootId(root_parent_id,size,page);
+        responseModel.setSuccess(result);
+        return responseModel;
+    }
 }

@@ -59,12 +59,25 @@ public class Comment {
         this.news = news;
     }
 
+    public Long getReportCount() {
+        return reportCount;
+    }
+    public void setReportCount(Long reportCount) {
+        this.reportCount = reportCount;
+    }
+    public Long getRoot_parent_id() {
+        return root_parent_id;
+    }
+    public void setRoot_parent_id(Long root_parent_id) {
+        this.root_parent_id = root_parent_id;
+    }
     private Long comment_id;
     private String content;
     private Long parent_id;
     private Users user;
     private String report_time;
     private News news;
-
+    private Long root_parent_id;
+    private Long reportCount;
 
 }

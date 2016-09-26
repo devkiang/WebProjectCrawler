@@ -86,7 +86,13 @@ public class News implements Serializable{
     public void setCollection(boolean collection) {
         isCollection = collection;
     }
+    public Long getCommentCount() {
+        return commentCount;
+    }
 
+    public void setCommentCount(Long commentCount) {
+        this.commentCount = commentCount;
+    }
     private String time;
     private String content;
     private String url;
@@ -94,5 +100,6 @@ public class News implements Serializable{
     private long pageViews;
     private Category category;
     private boolean isCollection;//用于用户是否被标记收藏而已 不映射到数据库字段
+    private Long commentCount;
 
 }
