@@ -7,50 +7,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9a2a8b08-4c04-4c81-b9b4-de6a5eceb635" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/dev/1commetnlist.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/dev/2commentlist.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/dev/addCollection.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/dev/api.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/dev/avatarUpload.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/dev/collection.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/dev/delCollection.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/dev/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/dev/login.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/dev/logout.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/dev/newindex.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/dev/newsDetail.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/dev/random.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/dev/register.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/dev/report.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/dev/resource/NewsDetailTemplate.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/dev/ui.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/dev/updateUserInfo.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/dev/userinfo.html" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/untitled_war_exploded/user_avatar/avatar_21.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/untitled_war_exploded/user_avatar_min/avatar_21.jpg" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/untitled_war_exploded/WEB-INF/classes/com/bk/crawler/action/UserAction.class" afterPath="$PROJECT_DIR$/out/artifacts/untitled_war_exploded/WEB-INF/classes/com/bk/crawler/action/UserAction.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/untitled_war_exploded/WEB-INF/classes/com/bk/crawler/entity/Comment.class" afterPath="$PROJECT_DIR$/out/artifacts/untitled_war_exploded/WEB-INF/classes/com/bk/crawler/entity/Comment.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/untitled_war_exploded/WEB-INF/classes/com/bk/crawler/entity/News.class" afterPath="$PROJECT_DIR$/out/artifacts/untitled_war_exploded/WEB-INF/classes/com/bk/crawler/entity/News.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/untitled_war_exploded/WEB-INF/classes/com/bk/crawler/entity/NewsBrief.class" afterPath="$PROJECT_DIR$/out/artifacts/untitled_war_exploded/WEB-INF/classes/com/bk/crawler/entity/NewsBrief.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/untitled_war_exploded/WEB-INF/classes/com/bk/crawler/service/NewsServiceImpl.class" afterPath="$PROJECT_DIR$/out/artifacts/untitled_war_exploded/WEB-INF/classes/com/bk/crawler/service/NewsServiceImpl.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/untitled/com/bk/crawler/action/UserAction.class" afterPath="$PROJECT_DIR$/out/production/untitled/com/bk/crawler/action/UserAction.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/untitled/com/bk/crawler/entity/Comment.class" afterPath="$PROJECT_DIR$/out/production/untitled/com/bk/crawler/entity/Comment.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/untitled/com/bk/crawler/entity/News.class" afterPath="$PROJECT_DIR$/out/production/untitled/com/bk/crawler/entity/News.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/untitled/com/bk/crawler/entity/NewsBrief.class" afterPath="$PROJECT_DIR$/out/production/untitled/com/bk/crawler/entity/NewsBrief.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/untitled/com/bk/crawler/service/NewsServiceImpl.class" afterPath="$PROJECT_DIR$/out/production/untitled/com/bk/crawler/service/NewsServiceImpl.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/untitled_war_exploded/index.html" afterPath="$PROJECT_DIR$/out/artifacts/untitled_war_exploded/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/bk/crawler/action/CommentAction.java" afterPath="$PROJECT_DIR$/src/com/bk/crawler/action/CommentAction.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/bk/crawler/action/UserAction.java" afterPath="$PROJECT_DIR$/src/com/bk/crawler/action/UserAction.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/bk/crawler/dao/CommentDAO.java" afterPath="$PROJECT_DIR$/src/com/bk/crawler/dao/CommentDAO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/bk/crawler/dao/CommentDAOImpl.java" afterPath="$PROJECT_DIR$/src/com/bk/crawler/dao/CommentDAOImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/bk/crawler/entity/Comment.java" afterPath="$PROJECT_DIR$/src/com/bk/crawler/entity/Comment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/bk/crawler/entity/News.java" afterPath="$PROJECT_DIR$/src/com/bk/crawler/entity/News.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/bk/crawler/entity/NewsBrief.java" afterPath="$PROJECT_DIR$/src/com/bk/crawler/entity/NewsBrief.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/bk/crawler/service/CommentService.java" afterPath="$PROJECT_DIR$/src/com/bk/crawler/service/CommentService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/bk/crawler/service/CommentServiceImpl.java" afterPath="$PROJECT_DIR$/src/com/bk/crawler/service/CommentServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/bk/crawler/service/NewsServiceImpl.java" afterPath="$PROJECT_DIR$/src/com/bk/crawler/service/NewsServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/index.html" afterPath="$PROJECT_DIR$/web/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/bk/crawler/dao/NewsBriefDAOImpl.java" afterPath="$PROJECT_DIR$/src/com/bk/crawler/dao/NewsBriefDAOImpl.java" />
     </list>
     <ignored path="untitled.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -88,9 +46,7 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="2775">
               <caret line="195" column="43" selection-start-line="195" selection-start-column="43" selection-end-line="195" selection-end-column="43" />
-              <folding>
-                <element signature="imports" expanded="false" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -105,14 +61,22 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CommentAction.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/bk/crawler/action/CommentAction.java">
+      <file leaf-file-name="NewsAction.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/bk/crawler/action/NewsAction.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
-              <caret line="34" column="55" selection-start-line="34" selection-start-column="55" selection-end-line="34" selection-end-column="55" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="795">
+              <caret line="68" column="36" selection-start-line="68" selection-start-column="36" selection-end-line="68" selection-end-column="36" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="NewsBriefDAOImpl.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/com/bk/crawler/dao/NewsBriefDAOImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="225">
+              <caret line="30" column="0" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -130,11 +94,9 @@
       <file leaf-file-name="CommentDAOImpl.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/bk/crawler/dao/CommentDAOImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="960">
+            <state relative-caret-position="885">
               <caret line="64" column="10" selection-start-line="64" selection-start-column="10" selection-end-line="64" selection-end-column="10" />
               <folding>
-                <element signature="e#5321#5322#0" expanded="false" />
-                <element signature="e#5349#5350#0" expanded="false" />
                 <marker date="1474619667000" expanded="true" signature="2348:2437" ph="select count... Comment" />
                 <marker date="1474619667000" expanded="true" signature="4763:4842" ph="select * fro... Comment" />
               </folding>
@@ -152,7 +114,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="NewsDetailTemplate.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="NewsDetailTemplate.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/dev/resource/NewsDetailTemplate.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="195">
@@ -205,7 +167,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/com/bk/crawler/allName2.txt" />
         <option value="$PROJECT_DIR$/src/com/bk/crawler/toolkit/FileHelper.java" />
         <option value="$PROJECT_DIR$/src/com/bk/crawler/toolkit/NamePlug.java" />
         <option value="$PROJECT_DIR$/src/com/bk/crawler/entity/NameModel.java" />
@@ -256,6 +217,7 @@
         <option value="$PROJECT_DIR$/src/com/bk/crawler/dao/CommentDAOImpl.java" />
         <option value="$PROJECT_DIR$/web/dev/newsDetail.html" />
         <option value="$PROJECT_DIR$/web/dev/resource/NewsDetailTemplate.html" />
+        <option value="$PROJECT_DIR$/src/com/bk/crawler/dao/NewsBriefDAOImpl.java" />
       </list>
     </option>
   </component>
@@ -280,7 +242,7 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="50" />
+    <option name="x" value="55" />
     <option name="y" value="23" />
     <option name="width" value="1870" />
     <option name="height" value="1057" />
@@ -341,8 +303,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="Scratches" />
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -385,11 +348,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dev" />
+              <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -403,21 +362,60 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="web" />
+              <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="dev" />
+              <option name="myItemId" value="crawler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="untitled" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="untitled" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="resource" />
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="crawler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dao" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="untitled" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="untitled" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="crawler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="action" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1099,19 +1097,21 @@
       <workItem from="1474161984217" duration="2411000" />
       <workItem from="1474244702682" duration="1470000" />
       <workItem from="1474264292289" duration="61877000" />
-      <workItem from="1474861469879" duration="3348000" />
+      <workItem from="1474861469879" duration="3709000" />
+      <workItem from="1474966894933" duration="780000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="274277000" />
+    <option name="totallyTimeSpent" value="275418000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="50" y="23" width="1870" height="1057" extended-state="6" />
+    <frame x="55" y="23" width="1870" height="1057" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3251599" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1136,7 +1136,6 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3251599" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
@@ -1177,13 +1176,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/com/bk/crawler/entity/Category.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="30" column="0" selection-start-line="30" selection-start-column="0" selection-end-line="31" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/bk/crawler/action/CollectionAction.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="344">
@@ -1440,17 +1432,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/bk/crawler/action/NewsAction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="825">
-          <caret line="68" column="36" selection-start-line="68" selection-start-column="36" selection-end-line="68" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/bk/crawler/action/CommentAction.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
+        <state relative-caret-position="510">
           <caret line="34" column="55" selection-start-line="34" selection-start-column="55" selection-end-line="34" selection-end-column="55" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -1499,9 +1483,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2775">
           <caret line="195" column="43" selection-start-line="195" selection-start-column="43" selection-end-line="195" selection-end-column="43" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1515,11 +1497,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/bk/crawler/dao/CommentDAOImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="960">
+        <state relative-caret-position="885">
           <caret line="64" column="10" selection-start-line="64" selection-start-column="10" selection-end-line="64" selection-end-column="10" />
           <folding>
-            <element signature="e#5321#5322#0" expanded="false" />
-            <element signature="e#5349#5350#0" expanded="false" />
             <marker date="1474619667000" expanded="true" signature="2348:2437" ph="select count... Comment" />
             <marker date="1474619667000" expanded="true" signature="4763:4842" ph="select * fro... Comment" />
           </folding>
@@ -1531,19 +1511,6 @@
         <state relative-caret-position="270">
           <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="29" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/bk/crawler/entity/NewsBrief.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="675">
-          <caret line="73" column="0" selection-start-line="73" selection-start-column="0" selection-end-line="73" selection-end-column="0" />
-          <folding>
-            <element signature="e#1351#1352#0" expanded="true" />
-            <element signature="e#1386#1387#0" expanded="true" />
-            <element signature="e#1440#1441#0" expanded="true" />
-            <element signature="e#1488#1489#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1565,6 +1532,35 @@
             <element signature="n#style#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/bk/crawler/entity/NewsBrief.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="675">
+          <caret line="73" column="0" selection-start-line="73" selection-start-column="0" selection-end-line="73" selection-end-column="0" />
+          <folding>
+            <element signature="e#1351#1352#0" expanded="true" />
+            <element signature="e#1386#1387#0" expanded="true" />
+            <element signature="e#1440#1441#0" expanded="true" />
+            <element signature="e#1488#1489#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/bk/crawler/action/NewsAction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="795">
+          <caret line="68" column="36" selection-start-line="68" selection-start-column="36" selection-end-line="68" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/bk/crawler/dao/NewsBriefDAOImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="30" column="0" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>

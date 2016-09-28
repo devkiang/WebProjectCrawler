@@ -17,7 +17,7 @@ public class NewsBriefDAOImpl extends HibernateTemplate implements NewsBriefDAO{
         Session s=getSession();
         List<NewsBrief> result=null;
         try {
-            Query q=s.createQuery("from NewsBriefModel as nbm where nbm.category.cid=1 order by  nbm.time desc ");
+            Query q=s.createQuery("from NewsBriefModel as nbm order by  nbm.time desc ");//where nbm.category.cid=1
             q.setFirstResult(page*size);
             q.setMaxResults(size);
             result = q.list();
