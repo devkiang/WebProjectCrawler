@@ -13,7 +13,7 @@ public class MemCachedManager {
         // 设置缓存服务器列表，当使用分布式缓存的时，可以指定多个缓存服务器。这里应该设置为多个不同的服务，我这里将两个服务设置为一样的，大家不要向我学习，呵呵。
         String[] servers =
                 {
-                        "127.0.0.1:11211",
+                        "bk886.com:11211",
 //                        "server3.mydomain.com:1624"
                 };
 

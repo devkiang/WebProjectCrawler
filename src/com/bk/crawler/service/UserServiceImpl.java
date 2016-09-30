@@ -11,6 +11,8 @@ import com.opensymphony.xwork2.ActionContext;
 
 import java.util.Map;
 import java.util.UUID;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * Created by shikee_app03 on 16/8/30.
@@ -75,9 +77,11 @@ public class UserServiceImpl implements  UserService{
                 response.setSuccess("验证成功",null);
             }else{
                 response.setFail("用户在别处登录");
+                response.setCode(-80);
             }
         }else {
             response.setFail("验证失败,用户没有登录");
+            response.setCode(-80);
         }
         return response;
     }
@@ -87,11 +91,13 @@ public class UserServiceImpl implements  UserService{
         ResponseModel responseModel=new ResponseModel();
         if(account==null||account.isEmpty()){
             responseModel.setFail("账号不能为空");
-        }else {
+        }else if(!this.validatePhone(account)){
+            responseModel.setFail("请输入正确的手机号");
+        }else{
             if(userDAO.checkAccount(account)){
                 responseModel.setSuccess("可以注册",null);
             }else{
-                responseModel.setFail("用户名被占用");
+                responseModel.setFail("账号被占用");
             }
         }
         return responseModel;
@@ -104,20 +110,23 @@ public class UserServiceImpl implements  UserService{
             responseModel.setFail("账号不能为空");
         }else if(user.getPassword()==null||user.getPassword().isEmpty()){
             responseModel.setFail("密码不能为空");
-        }else if(this.validateAccount(user.getAccount()).getCode()!=200){
-            responseModel.setFail("用户名被占用");
-        }else{
-            if(user.getName()==null||user.getName().isEmpty()){
-                ResponseModel randomNameResponseModel=this.randomName();
-                if(randomNameResponseModel.getCode()==200){
-                    user.setName(randomNameResponseModel.getResponseData().toString());
-                }
-            }
-            user=userDAO.save(user);
-            if (user==null) {
-                responseModel.setFail("注册失败");
+        }else {
+            ResponseModel validateAccountResponse=this.validateAccount(user.getAccount());
+            if(validateAccountResponse.getCode()!=200){
+                responseModel.setFail(validateAccountResponse.getMsg());
             }else{
-                responseModel.setSuccess("注册成功",user);
+                if(user.getName()==null||user.getName().isEmpty()){
+                    ResponseModel randomNameResponseModel=this.randomName();
+                    if(randomNameResponseModel.getCode()==200){
+                        user.setName(randomNameResponseModel.getResponseData().toString());
+                    }
+                }
+                user=userDAO.save(user);
+                if (user==null) {
+                    responseModel.setFail("注册失败");
+                }else{
+                    responseModel.setSuccess("注册成功",user);
+                }
             }
         }
         return responseModel;
@@ -127,15 +136,19 @@ public class UserServiceImpl implements  UserService{
     public ResponseModel getToken(String actionUrl, String uid,String sign) {
         ResponseModel responseModel=new ResponseModel();
         if(uid==null||uid.isEmpty()||sign==null||sign.isEmpty()){
-            responseModel.setFail("错误的传参");
+            responseModel.setFail("错误的请求,请先登录");
+            responseModel.setCode(-80);
+            XLog.debug("uid或sign为空");
         }else{
             String mcm_uid=(String)MemCachedManager.mcc.get(uid);
             if(mcm_uid==null||mcm_uid.isEmpty()){
-                responseModel.setFail("非法请求");
+                responseModel.setFail("您还没有登录,或者登录已经超时");
+                responseModel.setCode(-80);
             }else{
                 String token=this.validateRequest(actionUrl,uid,sign);
                 if(token==null||token.isEmpty()){
-                    responseModel.setFail("没有找到对应的token");
+                    responseModel.setFail("您的账号已经在别处登录,请重新登录");
+                    responseModel.setCode(-80);
                 }else{
                     responseModel.setSuccess("token获取成功",token);
                 }
@@ -167,7 +180,8 @@ public class UserServiceImpl implements  UserService{
                 responseModel.setFail("没有找到该用户");
             }
         }else{
-            responseModel.setFail("非法操作,用户没有登录!");
+            responseModel.setFail(validateLoginResponseModel.getMsg());
+            responseModel.setCode(validateLoginResponseModel.getCode());
         }
         return responseModel;
     }
@@ -193,10 +207,24 @@ public class UserServiceImpl implements  UserService{
         }
         String token=o_token.toString();
         String url=actionUrl+"?"+"uid="+uid+"&token="+token;//xxx.do?uid=0&token=xxxxx
+        XLog.debug("token获取...");
+        XLog.debug("token_url:"+actionUrl);
+        XLog.debug("token_uid:"+uid);
+        XLog.debug("服务器上的token:"+token);
+
         String url_md5=(new Toolkit()).str2Md5(url);
+        XLog.debug("传来的sign:"+sign);
+        XLog.debug("服务器的sign:"+url_md5);
         if(sign.equals(url_md5)){
             result = token;
         }
         return result;
+    }
+
+    private boolean validatePhone(String phone)
+    {
+        Pattern p = Pattern.compile("^((13[0-9])|(15[^4,\\D])|(18[0,5-9]))\\d{8}$");
+        Matcher m = p.matcher(phone);
+        return m.matches();
     }
 }

@@ -42,6 +42,9 @@ public class CommentDAOImpl extends HibernateTemplate implements CommentDAO {
     {
         Long result=0L;
         Long cid=0L;
+        if(comment.getParent_id()==null||comment.getParent_id()<1){
+            comment.setParent_id(0L);
+        }
         if(comment.getParent_id()==0){//一级评论
             cid=comment.getComment_id();
             Long countNum=this.getCommentCount(comment.getNews().getId());

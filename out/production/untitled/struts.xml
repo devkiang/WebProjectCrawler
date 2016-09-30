@@ -64,6 +64,12 @@
                 <param name="root">jsonResult</param>
             </result>
         </action>
+
+        <action name="reportComment" class="com.bk.crawler.action.CommentAction" method="reportComment">
+            <result type="json" >
+                <param name="root">jsonResult</param>
+            </result>
+        </action>
     </package>
 
     <package name="normal" extends="struts-default,json-default" >
@@ -97,23 +103,25 @@
             </result>
         </action>
 
-        <!-- 评论 -->
-        <action name="reportComment" class="com.bk.crawler.action.CommentAction" method="reportComment">
+        <action name="checkPhone" class="com.bk.crawler.action.UserAction" method="checkPhone">
             <result type="json" >
                 <param name="root">jsonResult</param>
             </result>
         </action>
 
+        <!-- 评论 -->
+
+
         <action name="commentList" class="com.bk.crawler.action.CommentAction" method="commentList">
             <result type="json" >
-                <param name="excludeProperties">.*collections,.*comment_list,.*password,.*token,.*account</param>
+                <param name="excludeProperties">.*collections,.*comment_list,.*password,.*token,.*account,.*category,.*title,.*url,.*source,.*pageViews,.*isCollection,.*collection,.*news\.content</param>
                 <param name="root">jsonResult</param>
             </result>
         </action>
 
         <action name="subCommentList" class="com.bk.crawler.action.CommentAction" method="subCommentList">
             <result type="json" >
-                <param name="excludeProperties">.*collections,.*comment_list,.*password,.*token,.*account</param>
+                <param name="excludeProperties">.*collections,.*comment_list,.*password,.*token,.*account,.*category,.*title,.*url,.*source,.*pageViews,.*isCollection,.*collection,.*news\.content</param>
                 <param name="root">jsonResult</param>
             </result>
         </action>

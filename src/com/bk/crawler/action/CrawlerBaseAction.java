@@ -36,16 +36,18 @@ public class CrawlerBaseAction extends ActionSupport {
 
         HttpServletRequest request= ServletActionContext.getRequest();
         Map<String,Object>  parameterMap=request.getParameterMap();
+        XLog.debug("调试模式");
         for(Entry<String, Object> entry:parameterMap.entrySet()){
             String key=entry.getKey();
-
             String[] value= (String[]) entry.getValue();
             if(value!=null&&value.length>0){
                 String orgin_value=encryptionService.decrypt(value[0],encodeKey);
                 paramMap.put(key,orgin_value);
+                //XLog.debug("调试模式");
+                XLog.debug("解密"+key+":"+orgin_value);
             }
         }
-        XLog.debug("解密参数完成!");
+        XLog.debug("解密参数完成!["+request.getRequestURL() +"]");
     }
 
     public void addError(String msg,boolean isException){
@@ -55,6 +57,13 @@ public class CrawlerBaseAction extends ActionSupport {
         }else{
             jsonResult.put("code","-1");
         }
+        jsonResult.put("data",null);
+    }
+
+    public void addError(String msg,Integer code)
+    {
+        jsonResult.put("msg",msg);
+        jsonResult.put("code",code+"");
         jsonResult.put("data",null);
     }
 

@@ -4,6 +4,7 @@ import com.bk.crawler.entity.ResponseModel;
 import com.bk.crawler.service.CollectionService;
 import com.bk.crawler.service.CollectionServiceImpl;
 import com.bk.crawler.toolkit.Toolkit;
+import com.bk.crawler.toolkit.XLog;
 
 /**
  * Created by shikee_app03 on 16/9/8.
@@ -19,6 +20,7 @@ public class CollectionAction extends CrawlerBaseAction{
         int size=t.convert2Int(paramMap.get("size"));
         if(uid==null||uid<1L) {
             addError("非法请求");
+            XLog.debug("userCollection_uid:"+uid);
             return SUCCESS;
         }
 
@@ -51,8 +53,12 @@ public class CollectionAction extends CrawlerBaseAction{
     public String addCollection(){
         Long uid = t.convert2Long(paramMap.get("uid"));
         Long nid=t.convert2Long(paramMap.get("nid"));
+        XLog.debug("uid:"+uid);
+        XLog.debug("nid:"+nid);
         if(uid==null||uid<1||nid==null||nid<1) {
             addError("非法请求");
+            XLog.debug("uid:"+uid);
+            XLog.debug("nid:"+nid);
             return SUCCESS;
         }
         ResponseModel responseModel=collectionService.addCollection(uid,nid);
@@ -60,6 +66,8 @@ public class CollectionAction extends CrawlerBaseAction{
             addSuccess(responseModel.getResponseData(),responseModel.getMsg());
         }else{
             addError(responseModel.getMsg());
+            XLog.debug("service_uid:"+uid);
+            XLog.debug("service_nid:"+nid);
         }
         return SUCCESS;
     }

@@ -22,6 +22,7 @@ public class UserAction extends CrawlerBaseAction{
 
     UserService userService=new UserServiceImpl();
     EncryptionService encryptionService=new IOSEncryptionServiceImpl();
+    private Toolkit toolkit=new Toolkit();
     public String login(){
         String account= (String) paramMap.get("account");
         String tmp_password=(String) paramMap.get("auth");//authen="password=x&&timestamp=4445555566"
@@ -53,6 +54,17 @@ public class UserAction extends CrawlerBaseAction{
         if(responseModel.getCode()==200){
             Users user=(Users) responseModel.getResponseData();
             addSuccess(user,responseModel.getMsg());
+        }else{
+            addError(responseModel.getMsg());
+        }
+        return SUCCESS;
+    }
+
+    public String checkPhone(){
+        String phone=toolkit.convert2String(paramMap.get("account"));
+        ResponseModel responseModel=userService.validateAccount(phone);
+        if(responseModel.getCode()==200){
+            addSuccess("可以注册","可以注册");
         }else{
             addError(responseModel.getMsg());
         }
@@ -119,7 +131,7 @@ public class UserAction extends CrawlerBaseAction{
     }
 
     public String uploadAvatar(){
-        Toolkit toolkit=new Toolkit();
+
         MultiPartRequestWrapper request= (MultiPartRequestWrapper) ServletActionContext.getRequest();
         Map orgin_params=encryptionService.decrypt(request.getParameterMap());
         Long uid = toolkit.convert2Long(orgin_params.get("uid"));

@@ -17,6 +17,7 @@ public class Comment {
         this.comment_id = comment_id;
     }
 
+    @Column(columnDefinition="TEXT")
     public String getContent() {
         return content;
     }
@@ -79,5 +80,9 @@ public class Comment {
     private News news;
     private Long root_parent_id;
     private Long reportCount;
+
+
+
+    //
 
 }

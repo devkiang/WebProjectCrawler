@@ -7,6 +7,7 @@ import com.bk.crawler.entity.Users;
 import com.bk.crawler.service.CommentService;
 import com.bk.crawler.service.CommentServiceImpl;
 import com.bk.crawler.toolkit.Toolkit;
+import com.bk.crawler.toolkit.XLog;
 
 import java.util.List;
 
@@ -22,6 +23,12 @@ public class CommentAction extends CrawlerBaseAction{
         Long parent_id=toolkit.convert2Long(paramMap.get("parent_id"));
         Long news_id=toolkit.convert2Long(paramMap.get("nid"));
         Long root_parent_id=toolkit.convert2Long(paramMap.get("root_parent_id"));
+//        XLog.debug("收到回复提交");
+//        XLog.debug("content:"+content);
+//        XLog.debug("uid:"+uid);
+//        XLog.debug("nid:"+news_id);
+//        XLog.debug("root_parent_id:"+root_parent_id);
+//        XLog.debug("parent_id:"+parent_id);
         Comment comment=new Comment();
         Users user=new Users();
         user.setUid(uid);
@@ -77,4 +84,6 @@ public class CommentAction extends CrawlerBaseAction{
 
         return SUCCESS;
     }
+
+
 }
