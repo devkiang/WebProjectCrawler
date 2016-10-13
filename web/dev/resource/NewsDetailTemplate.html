@@ -3,7 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <title>loading</title>
-    <style type="text/css">img { height: auto; width: auto\9; width:100%; }</style>
+    <style type="text/css">
+        img { height: auto; width: auto\9; width:100%; }
+        a:link {color: #007AFF;text-decoration: none;}
+        a:visited {color: #007AFF;text-decoration: none;}
+        a:hover {color: #007AFF; text-decoration: none; }
+    </style>
 </head>
 <script>
 
@@ -18,11 +23,12 @@
         document.getElementById("custom_div_time").innerHTML=time;
     }
 
-    function fillPageviews(pageviews)
+    function fillLink(linek)
     {
-        document.getElementById("custom_div_pageviews").innerHTML=pageviews;
+        var url=linek+"#cst_app_order";
+        document.getElementById("cutom_a_link").setAttribute("href",url);
     }
-    
+
     function fillContent(contentHtmlCode) {
         document.getElementById("custom_div_content").innerHTML=contentHtmlCode;
     }
@@ -31,9 +37,11 @@
 
 
 <body>
-   <p align="left" style="color:black;font-size:20px;" id="custom_p_title"></p> <!-- 大标题 -->
-   <div style="float:left;margin-left:10px;width:auto;height:auto;font-size:12px;color:#989898;" id="custom_div_time"></div> <!-- 时间 -->
-   <div style="float:right;margin-right:10px;width:auto;height:auto;font-size:12px;color:#989898;" id="custom_div_pageviews"></div> <!-- 浏览量 -->
-   <div style="width:100%;float:left;" id="custom_div_content"></div> <!-- 内容 -->
+<div align="left" style="color:black;font-size:24px;" id="custom_p_title"></div> <!-- 大标题 -->
+<p> <p>
+<div style="float:left;margin-left:10px;width:auto;height:auto;font-size:12px;color:#989898;" id="custom_div_time"></div> <!-- 时间 -->
+<div style="float:right;margin-right:10px;width:auto;height:auto;font-size:12px;color:#989898;"><a id="cutom_a_link" href='#cst_app_order'> 原文 </a></div> <!-- 浏览量 -->
+
+<div style="width:100%;float:left;" id="custom_div_content">default</div> <!-- 内容 -->
 </body>
 </html>

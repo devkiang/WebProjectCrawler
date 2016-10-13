@@ -4,8 +4,6 @@ import com.bk.crawler.dao.NewsBriefDAO;
 import com.bk.crawler.dao.NewsBriefDAOImpl;
 import com.bk.crawler.entity.NewsBrief;
 import com.bk.crawler.entity.ResponseModel;
-
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -18,8 +16,17 @@ public class NewsBriefServiceImpl implements NewsBriefService{
     }
 
     @Override
-    public List<NewsBrief> list(int page, int size) {
-        return newsBriefDAO.list(page,size);
+    public ResponseModel list(int page, int size) {
+        ResponseModel responseModel=new ResponseModel();
+        try {
+            List result=newsBriefDAO.list(page,size);
+            responseModel.setSuccess(result);
+        } catch (Exception e) {
+            e.printStackTrace();
+            responseModel.setFail("服务器异常");
+        } finally {
+        }
+        return responseModel;
     }
 
     @Override
@@ -31,6 +38,14 @@ public class NewsBriefServiceImpl implements NewsBriefService{
         }else{
             responseModel.setSuccess(newsBriefList);
         }
+        return responseModel;
+    }
+
+    @Override
+    public ResponseModel getNewsBriefListByCategoryId(Long cid,int page,int size) {
+        ResponseModel responseModel=new ResponseModel();
+        List<NewsBrief> result=newsBriefDAO.getListByCategoryId(cid,page,size);
+        responseModel.setSuccess(result);
         return responseModel;
     }
 }

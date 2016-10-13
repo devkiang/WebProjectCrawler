@@ -61,9 +61,9 @@ public class CommentServiceImpl implements CommentService{
                 comment.setReport_time(toolkit.getCurrSimestamp()+"");
 //            String bin_content=toolkit.str2Bin(comment.getContent());
 //            comment.setContent(bin_content);
-                boolean falg=commentDAO.addComment(comment);
-                if(falg){
-                    responseModel.setSuccess("回复成功");
+                Comment result=commentDAO.addComment(comment);
+                if(result!=null){
+                    responseModel.setSuccess("回复成功",result);
                 }else {
                     responseModel.setFail("回复失败,服务器超时");
                 }

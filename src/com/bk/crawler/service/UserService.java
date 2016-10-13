@@ -16,4 +16,5 @@ public interface UserService {
     public ResponseModel randomName();
     public ResponseModel getUser(Long uid,String token);
     public ResponseModel updateUser(Users user);
+    public ResponseModel updatePwd(String account,String newPwd);
 }

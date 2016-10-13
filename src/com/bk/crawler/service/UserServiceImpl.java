@@ -50,7 +50,7 @@ public class UserServiceImpl implements  UserService{
     public ResponseModel logout(String uid, String token) {
         ResponseModel responseModel=new ResponseModel();
         if(uid==null||token==null||uid.isEmpty()||token.isEmpty()){
-            responseModel.setFail("非法调用");
+            responseModel.setSuccess("非法调用");
         }else{
             Object obj_local_token=MemCachedManager.mcc.get(uid);
             String local_token=obj_local_token==null?"":obj_local_token.toString();
@@ -61,7 +61,7 @@ public class UserServiceImpl implements  UserService{
                 }
                 responseModel.setSuccess("退出成功!",null);
             }else{
-                responseModel.setFail("没有找到登录记录,退出失败!");
+                responseModel.setSuccess("没有找到登录记录,退出失败!");
             }
         }
         return responseModel;
@@ -95,9 +95,9 @@ public class UserServiceImpl implements  UserService{
             responseModel.setFail("请输入正确的手机号");
         }else{
             if(userDAO.checkAccount(account)){
-                responseModel.setSuccess("可以注册",null);
+                responseModel.setSuccess("可以注册",true);
             }else{
-                responseModel.setFail("账号被占用");
+                responseModel.setSuccess("账号被占用",false);
             }
         }
         return responseModel;
@@ -110,6 +110,8 @@ public class UserServiceImpl implements  UserService{
             responseModel.setFail("账号不能为空");
         }else if(user.getPassword()==null||user.getPassword().isEmpty()){
             responseModel.setFail("密码不能为空");
+        }else if(user.getPassword().length()<6){
+            responseModel.setFail("密码不足六位数");
         }else {
             ResponseModel validateAccountResponse=this.validateAccount(user.getAccount());
             if(validateAccountResponse.getCode()!=200){
@@ -196,6 +198,39 @@ public class UserServiceImpl implements  UserService{
             responseModel.setFail("修改失败");
         }
         return responseModel;
+    }
+
+    @Override
+    public ResponseModel updatePwd(String account, String newPwd) {
+        ResponseModel resultResponseModel=new ResponseModel();
+        if(newPwd==null||newPwd.isEmpty()){
+            resultResponseModel.setFail("修改的密码不能为空");
+            return resultResponseModel;
+        }
+        if(newPwd.length()<6){
+            resultResponseModel.setFail("请输入至少6位数的密码");
+            return resultResponseModel;
+        }
+
+        ResponseModel responseModel=this.validateAccount(account);
+        if(responseModel.getCode()==200){
+            boolean result=Boolean.parseBoolean(responseModel.getResponseData().toString());
+            if(result==true){//账号不存在
+                resultResponseModel.setFail("该手机号尚未注册");
+            }else{
+                Users user=userDAO.getUserByAccount(account);
+                if(user==null){
+                    resultResponseModel.setFail("错误");
+                }else{
+                    user.setPassword(newPwd);
+                    user=userDAO.update(user);
+                    resultResponseModel.setSuccess("密码修改成功",user);
+                }
+            }
+        }else{
+            resultResponseModel.setFail(responseModel.getMsg());
+        }
+        return resultResponseModel;
     }
 
     private String validateRequest(String actionUrl,String uid,String sign)

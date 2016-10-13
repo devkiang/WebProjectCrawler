@@ -11,5 +11,6 @@ import java.util.List;
 public interface NewsBriefDAO {
     public List<NewsBrief> list(int page, int size);
     public NewsBrief getNewsBriefByNewsId(Long nid);
+    public List<NewsBrief> getListByCategoryId(Long cid,int page,int size);
     public List<NewsBrief> getNewsBriefListByNewsIdList(List<Long> news_id_list);
 }

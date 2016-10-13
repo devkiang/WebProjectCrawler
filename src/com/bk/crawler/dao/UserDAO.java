@@ -13,4 +13,5 @@ public interface UserDAO {
     public Users save(Users user);
     public String getRandomName();
     public Users update(Users user);
+    public Users getUserByAccount(String account);
 }

@@ -5,6 +5,7 @@ import com.bk.crawler.entity.Users;
 import com.bk.crawler.service.*;
 import com.bk.crawler.toolkit.NamePlug;
 import com.bk.crawler.toolkit.Toolkit;
+import com.bk.crawler.toolkit.XLog;
 import org.apache.struts2.ServletActionContext;
 import org.apache.struts2.dispatcher.multipart.MultiPartRequestWrapper;
 
@@ -60,11 +61,24 @@ public class UserAction extends CrawlerBaseAction{
         return SUCCESS;
     }
 
+    public String updatePwd(){
+        String account=toolkit.convert2String(paramMap.get("account"));
+        String newPwd=toolkit.convert2String(paramMap.get("newPwd"));
+        ResponseModel responseModel=userService.updatePwd(account,newPwd);
+        if(responseModel.getCode()==200){
+            addSuccess(responseModel.getResponseData(),responseModel.getMsg());
+        }else{
+            addError(responseModel.getMsg());
+        }
+        return SUCCESS;
+    }
+
+
     public String checkPhone(){
         String phone=toolkit.convert2String(paramMap.get("account"));
         ResponseModel responseModel=userService.validateAccount(phone);
         if(responseModel.getCode()==200){
-            addSuccess("可以注册","可以注册");
+            addSuccess(responseModel.getResponseData(),"请求成功");
         }else{
             addError(responseModel.getMsg());
         }
@@ -87,7 +101,13 @@ public class UserAction extends CrawlerBaseAction{
         user.setExp(exp);
         ResponseModel responseModel=userService.register(user);
         if(responseModel.getCode()==200){
-            addSuccess(responseModel.getResponseData(),responseModel.getMsg());
+            ResponseModel loginReModel=userService.login(user.getAccount(),user.getPassword());
+            if(loginReModel.getCode()==200){
+                addSuccess(loginReModel.getResponseData(),responseModel.getMsg());
+            }else{
+                addError(loginReModel.getMsg());
+            }
+//            addSuccess(responseModel.getResponseData(),responseModel.getMsg());
         }else{
             addError(responseModel.getMsg());
         }
@@ -120,12 +140,12 @@ public class UserAction extends CrawlerBaseAction{
             obj_token=obj_token==null?"":obj_token.toString();
             tokenResponse=userService.logout(uid,obj_token.toString());
             if(tokenResponse.getCode()==200){
-                tokenResponse.setSuccess("["+uid+"]"+"退出成功!");
+                addSuccess("","["+uid+"]"+"退出成功!");
             }else{
-                tokenResponse.setFail("退出失败!");
+                addSuccess("","退出失败!");
             }
         }else{
-            addError(tokenResponse.getMsg());
+            addSuccess("",tokenResponse.getMsg());
         }
         return SUCCESS;
     }
@@ -163,10 +183,12 @@ public class UserAction extends CrawlerBaseAction{
         }
         String[] types=request.getContentTypes("avatar");
         String type=types[0];
+        XLog.debug("type:"+type);
         File[] files=request.getFiles("avatar");
+        XLog.debug("file:"+files[0]);
         ResponseModel tokenResponseModel=userService.getToken(requestUrl,uid+"",sign);
         if(tokenResponseModel.getCode()!=200){
-            addError("用户没有登录");
+            addError(tokenResponseModel.getMsg());
             return SUCCESS;
         }
         String token=tokenResponseModel.getResponseData().toString();

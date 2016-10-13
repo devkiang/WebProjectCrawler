@@ -15,20 +15,22 @@ public class CommentDAOImpl extends HibernateTemplate implements CommentDAO {
     private NewsDAO newsDAO=new NewsDAOImpl();
     private NewsBriefDAO newsBriefDAO=new NewsBriefDAOImpl();
     @Override
-    public boolean addComment(Comment comment) {
-        boolean result=false;
+    public Comment addComment(Comment comment) {
+        Comment result=null;
         Session s = getSession();
+        Session sGet=getSession();
         Transaction t = s.beginTransaction();
         try {
             s.save(comment);
             t.commit();
             this.countReportNum(comment);
-            result=true;
+            result= (Comment) sGet.get(Comment.class,comment.getComment_id());
         } catch (Exception e) {
 //            t.rollback();
             e.printStackTrace();
         } finally {
             s.close();
+            sGet.close();
         }
         return result;
     }

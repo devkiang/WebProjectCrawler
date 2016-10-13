@@ -49,6 +49,25 @@ public class NewsBriefDAOImpl extends HibernateTemplate implements NewsBriefDAO{
     }
 
     @Override
+    public List<NewsBrief> getListByCategoryId(Long cid,int page,int size) {
+        Session s= getSession();
+        List result=null;
+        try {
+            Query q=s.createQuery("from NewsBriefModel as nbm where nbm.category.cid=?");
+            q.setFirstResult(page*size);
+            q.setMaxResults(size);
+            q.setParameter(0,cid);
+            result=q.list();
+        } catch (HibernateException e) {
+            e.printStackTrace();
+            return null;
+        } finally {
+            s.close();
+        }
+        return result;
+    }
+
+    @Override
     public List<NewsBrief> getNewsBriefListByNewsIdList(List<Long> news_id_list) {
         Session s= getSession();
         List<NewsBrief> result=null;

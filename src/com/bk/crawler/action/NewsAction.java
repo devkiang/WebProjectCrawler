@@ -50,8 +50,13 @@ public class NewsAction extends CrawlerBaseAction{
         if(size<1){
             size=1;
         }
-        List<NewsBrief> list=newsBriefService.list(page,size);
-        addSuccess(list,"新闻列表获取成功");
+        ResponseModel responseModel=newsBriefService.list(page,size);
+        if(responseModel.getCode()==200){
+            List<NewsBrief> list= (List<NewsBrief>) responseModel.getResponseData();
+            addSuccess(list,"新闻列表获取成功");
+        }else{
+            addError(responseModel.getMsg());
+        }
         return SUCCESS;
     }
 
@@ -92,6 +97,33 @@ public class NewsAction extends CrawlerBaseAction{
             e.printStackTrace();
             addError("服务器异常:"+e.getMessage());
             return SUCCESS;
+        }
+        return SUCCESS;
+    }
+
+    public String newsList(){
+        int page=t.convert2Int(paramMap.get("page"));
+        int size=t.convert2Int(paramMap.get("size"));
+        Long cid=t.convert2Long(paramMap.get("cid"));
+        if(page<0){
+            page=0;
+        }
+        if(size<1){
+            size=1;
+        }
+        if(cid<1){
+            cid=0L;
+        }
+        ResponseModel responseModel=null;
+        if(cid==0){//查询全部
+            responseModel=newsBriefService.list(page,size);
+        }else{//查询指定分类
+            responseModel=newsBriefService.getNewsBriefListByCategoryId(cid,page,size);
+        }
+        if(responseModel.getCode()==200){
+            addSuccess(responseModel.getResponseData(),responseModel.getMsg());
+        }else{
+            addError(responseModel.getMsg());
         }
         return SUCCESS;
     }

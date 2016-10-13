@@ -117,4 +117,25 @@ public class UserDAOImpl extends HibernateTemplate implements  UserDAO {
         return user;
     }
 
+    @Override
+    public Users getUserByAccount(String account) {
+        Session s= getSession();
+        try {
+            List<Users> result=null;
+            Query q=s.createQuery("from Users as u where u.account=?");
+            q.setParameter(0,account);
+            result=q.list();
+            if(result==null||result.size()<1){
+                return null;
+            }else{
+                return result.get(0);
+            }
+        } catch (HibernateException e) {
+            e.printStackTrace();
+            return null;
+        } finally {
+            s.close();
+        }
+    }
+
 }

@@ -21,16 +21,13 @@
         </interceptors>
         <default-interceptor-ref name="loginStack" />
 
-        <action name="userLogout" class="com.bk.crawler.action.UserAction" method="logout">
-            <result type="json" >
-                <param name="root">jsonResult</param>
-            </result>
-        </action>
+
 
         <action name="userUpdate" class="com.bk.crawler.action.UserAction" method="userUpdate">
             <result type="json" >
                 <param name="excludeProperties">.*collections,.*comment_list</param>
                 <param name="root">jsonResult</param>
+
             </result>
         </action>
 
@@ -68,12 +65,19 @@
         <action name="reportComment" class="com.bk.crawler.action.CommentAction" method="reportComment">
             <result type="json" >
                 <param name="root">jsonResult</param>
+                <param name="excludeProperties">.*collections,.*comment_list,.*password,.*token,.*account,.*category,.*title,.*url,.*source,.*pageViews,.*isCollection,.*collection,.*news\.content</param>
             </result>
         </action>
     </package>
 
     <package name="normal" extends="struts-default,json-default" >
-        <action name="news" class="com.bk.crawler.action.NewsAction" method="index">
+        <action name="userLogout" class="com.bk.crawler.action.UserAction" method="logout">
+            <result type="json" >
+                <param name="root">jsonResult</param>
+            </result>
+        </action>
+
+        <action name="news" class="com.bk.crawler.action.NewsAction" method="newsList">
             <result type="json" >
                 <param name="root">jsonResult</param>
             </result>
@@ -93,6 +97,14 @@
 
         <action name="userRegister" class="com.bk.crawler.action.UserAction" method="register">
             <result type="json" >
+                <param name="excludeProperties">.*collections,.*comment_list</param>
+                <param name="root">jsonResult</param>
+            </result>
+        </action>
+
+        <action name="updatePwd" class="com.bk.crawler.action.UserAction" method="updatePwd">
+            <result type="json" >
+                <param name="excludeProperties">.*collections,.*comment_list</param>
                 <param name="root">jsonResult</param>
             </result>
         </action>
@@ -109,6 +121,13 @@
             </result>
         </action>
 
+        <!-- 通用 -->
+        <action name="category" class="com.bk.crawler.action.GeneralAction" method="category">
+            <result type="json" >
+                <param name="excludeProperties">.*collections,.*comment_list,.*password,.*token,.*account,.*category,.*title,.*url,.*source,.*pageViews,.*isCollection,.*collection,.*news\.content</param>
+                <param name="root">jsonResult</param>
+            </result>
+        </action>
         <!-- 评论 -->
 
 
