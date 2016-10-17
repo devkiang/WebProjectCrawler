@@ -17,6 +17,10 @@ public class CategoryServiceImpl implements CategoryService{
     public ResponseModel getCategory() {
         ResponseModel responseModel=new ResponseModel();
         List<Category> result=categoryDAO.getCategory();
+        Category allCategory=new Category();
+        allCategory.setCid(0);
+        allCategory.setName("全部");
+        result.add(0,allCategory);
         responseModel.setSuccess(result);
         return responseModel;
     }

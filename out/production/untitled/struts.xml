@@ -31,11 +31,7 @@
             </result>
         </action>
 
-        <action name="uploadAvatar" class="com.bk.crawler.action.UserAction" method="uploadAvatar">
-            <result type="json" >
-                <param name="root">jsonResult</param>
-            </result>
-        </action>
+
 
         <action name="getUserInfo" class="com.bk.crawler.action.UserAction" method="getUserInfo">
             <result type="json" >
@@ -71,6 +67,12 @@
     </package>
 
     <package name="normal" extends="struts-default,json-default" >
+        <action name="uploadAvatar" class="com.bk.crawler.action.UserAction" method="uploadAvatar">
+            <result type="json" >
+                <param name="root">jsonResult</param>
+            </result>
+        </action>
+        <!-- 头像上传内部自带sign验证了,不需要通过拦截器再验证了 -->
         <action name="userLogout" class="com.bk.crawler.action.UserAction" method="logout">
             <result type="json" >
                 <param name="root">jsonResult</param>
